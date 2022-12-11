@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img id="tank" src="image/Up.PNG" alt=""><br><br><br>
+<button onclick="moveRight()">Right</button>
+<button onclick="moveLeft()">Left</button>
+<button onclick="moveUp()">Up</button>
+<button onclick="moveDown()">Down</button>
+<script>
+    let tank = document.getElementById('tank')
+    function init() {
+        tank.style.position = 'absolute'
+        tank.style.left = 0 + 'px'
+        tank.style.top = 0 + 'px'
+    }
+    init();
+    function  moveRight() {
+        tank.src = 'image/Right.PNG'
+        tank.style.left = parseInt(tank.style.left) + 40 + 'px'
+        console.log('left----->',tank.style.left)
+    }
+    function moveLeft() {
+        tank.src = 'image/Left.PNG'
+        tank.style.left = parseInt(tank.style.left) - 40 + 'px'
+        console.log('Right----->',tank.style.left)
+    }
+    function moveUp(){
+        tank.src = 'image/UP.PNG'
+        tank.style.top = parseInt(tank.style.top) - 40 + 'px'
+    }
+    function moveDown() {
+        tank.src = 'image/Down.PNG'
+        tank.style.top = parseInt(tank.style.top) + 40 +'px'
+    }
+    function selectionKeyBoard(envent){
+        console.log('envent--->',envent)
+        switch (envent.keyCode) {
+            case 38:
+                moveUp();
+                break;
+            case 37:
+                moveLeft();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 40:
+                moveDown();
+                break;
+
+        }
+    }
+    addEventListener('keydown',selectionKeyBoard)
+</script>
+</body>
+</html>
